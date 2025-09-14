@@ -90,12 +90,12 @@ export default function Home({ userInput, setUserInput, selectedTags, setSelecte
   };
 
   const [emotions, setEmotions] = useState([
-    { label: language === 'en' ? 'Confused' : '迷茫', value: 5 },
-    { label: language === 'en' ? 'Anxious' : '焦虑', value: 5 },
-    { label: language === 'en' ? 'Hesitant' : '犹豫', value: 5 },
-    { label: language === 'en' ? 'Confident' : '自信', value: 5 },
-    { label: language === 'en' ? 'Excited' : '兴奋', value: 5 },
-    { label: language === 'en' ? 'Calm' : '平静', value: 5 }
+    { label: language === 'en' ? 'Confused' : '迷茫', value: 0 },
+    { label: language === 'en' ? 'Anxious' : '焦虑', value: 0 },
+    { label: language === 'en' ? 'Hesitant' : '犹豫', value: 0 },
+    { label: language === 'en' ? 'Confident' : '自信', value: 0 },
+    { label: language === 'en' ? 'Excited' : '兴奋', value: 0 },
+    { label: language === 'en' ? 'Calm' : '平静', value: 0 }
   ]);
   const [selectedGender, setSelectedGender] = useState('');
   const [selectedAge, setSelectedAge] = useState('');
@@ -103,11 +103,11 @@ export default function Home({ userInput, setUserInput, selectedTags, setSelecte
   const [selectedZodiac, setSelectedZodiac] = useState('');
   const [customFactors, setCustomFactors] = useState<Array<{label: string, value: number}>>([]);
   const [decisionFactors, setDecisionFactors] = useState([
-    { label: language === 'en' ? 'Urgency Level' : '急迫程度', value: 5 },
-    { label: language === 'en' ? 'Expected Return' : '收益预期', value: 5 },
-    { label: language === 'en' ? 'Skills Possessed' : '具备技能', value: 5 },
-    { label: language === 'en' ? 'Family Resistance' : '家庭阻力', value: 5 },
-    { label: language === 'en' ? 'Economic Pressure' : '经济压力', value: 5 }
+    { label: language === 'en' ? 'Urgency Level' : '急迫程度', value: 0 },
+    { label: language === 'en' ? 'Expected Return' : '收益预期', value: 0 },
+    { label: language === 'en' ? 'Skills Possessed' : '具备技能', value: 0 },
+    { label: language === 'en' ? 'Family Resistance' : '家庭阻力', value: 0 },
+    { label: language === 'en' ? 'Economic Pressure' : '经济压力', value: 0 }
   ]);
   const completedCount = (selectedAge ? 1 : 0) + (selectedGender ? 1 : 0);
   const navigate = useNavigate();
@@ -415,7 +415,7 @@ export default function Home({ userInput, setUserInput, selectedTags, setSelecte
                      onClick={() => {
                        const customEmotion = prompt(language === 'zh' ? '请输入自定义情绪:' : 'Enter custom emotion:');
                        if (customEmotion && customEmotion.trim()) {
-                         setEmotions([...emotions, { label: customEmotion.trim(), value: 5 }]);
+                         setEmotions([...emotions, { label: customEmotion.trim(), value: 0 }]);
                        }
                      }}
                      className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center"
@@ -506,7 +506,7 @@ export default function Home({ userInput, setUserInput, selectedTags, setSelecte
                        if (factorName && factorName.trim()) {
                          setCustomFactors([...customFactors, { 
                            label: factorName.trim(), 
-                           value: 5 
+                           value: 0 
                          }]);
                        }
                      }}
